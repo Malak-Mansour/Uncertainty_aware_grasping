@@ -1,0 +1,16 @@
+*.pt
+npy_files
+results
+results_with_completion_fields
+checkpoints/*
+!checkpoints/contact_graspnet/checkpoints/*.pt
+!checkpoints/contact_graspnet
+*.npz
+**/*.pyc
+**/__pycache__
+.vscode
+acronym/*
+!acronym/*.py
+
+*.egg-info
+
