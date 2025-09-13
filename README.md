@@ -1,10 +1,26 @@
 ### PointAttN
+We are running it with no occlusions, occlusion 0.1, 0.2, 0.3, and 0.4.
+
+cd PointAttN-Modified_uncertainty
+1. uncomment the 2 data_dir lines in train_not_noisy.py with the experiment (what level of occlusions) that u want
+2. uncomment the data_dir line in test_pcn_MC.py with the experiment (what level of occlusions) that u want
+3. (un)comment the "If doing occlusions" section in PCDDataset.py depending on your experiment
+4. Write the model name in cfg.yaml
+     PointAttN_baseline_cd_matching_f1 (without dropout)
+   or
+     PointAttN_baseline_cd_matching_f1_MC (with dropout)
+5. python train_not_noisy.py -c PointAttN.yaml
+6. python test_pcn_MC.py -c PointAttN.yaml 
 
 
 ### GraspNet
-python move_npz_to_npy.py  #includes filtering the pcl
-python contact_graspnet_pytorch/inference.py --np_path=npy_files/*.npy --forward_passes=5 --z_range=[0.2,1.1]​
-python add_completion_fields.py ​
+Modify the paths in the following files. Note that .npz are the completion outputs from PointAttN
+
+cd contact_graspnet_pytorch
+1. python move_npz_to_npy.py  #includes filtering the pcl
+2. python contact_graspnet_pytorch/inference.py --np_path=npy_files/*.npy --forward_passes=5 --z_range=[0.2,1.1]​
+3. python add_completion_fields.py ​
 
 ​
 ### Visualize and filter grasps ​
+python filter_grasps.py
