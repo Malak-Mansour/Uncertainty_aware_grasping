@@ -38,7 +38,7 @@ cd contact_graspnet_pytorch
    ```
 3. ```
    python add_completion_fields.py
-   ​```
+   ```
 
 ​
 ### Visualize and filter grasps ​
