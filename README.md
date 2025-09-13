@@ -17,8 +17,12 @@ cd PointAttN-Modified_uncertainty
      PointAttN_baseline_cd_matching_f1 (without dropout)
    or
      PointAttN_baseline_cd_matching_f1_MC (with dropout)
-5. ```python train_not_noisy.py -c PointAttN.yaml```
-6. ```python test_pcn_MC.py -c PointAttN.yaml ```
+5. ```
+   python train_not_noisy.py -c PointAttN.yaml
+   ```
+6. ```
+   python test_pcn_MC.py -c PointAttN.yaml
+   ```
 
 
 ## GraspNet
@@ -26,10 +30,18 @@ Modify the paths in the following files. Note that .npz are the completion outpu
 ```
 cd contact_graspnet_pytorch
 ```
-1. ```python move_npz_to_npy.py  #includes filtering the pcl ```
-2. ```python contact_graspnet_pytorch/inference.py --np_path=npy_files/*.npy --forward_passes=5 --z_range=[0.2,1.1]​ ```
-3. ```python add_completion_fields.py ​```
+1. ```
+   python move_npz_to_npy.py  #includes filtering the pcl
+   ```
+2. ```
+   python contact_graspnet_pytorch/inference.py --np_path=npy_files/*.npy --forward_passes=5 --z_range=[0.2,1.1]​
+   ```
+3. ```
+   python add_completion_fields.py
+   ​```
 
 ​
 ### Visualize and filter grasps ​
-```python filter_grasps.py```
+```
+python filter_grasps.py
+```
