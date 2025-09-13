@@ -20,10 +20,14 @@ cd PointAttN-Modified_uncertainty
 5. ```
    python train_not_noisy.py -c PointAttN.yaml
    ```
-6. ```
+6. Choose the path of the latest epoch in the training results and add that to the config file
+   ```
    python test_pcn_MC.py -c PointAttN.yaml
    ```
-
+7. Optional, to choose the strawberry (.npz) with the least stddev
+   ```
+   python rank_stddev.py
+   ```
 
 ## GraspNet
 Modify the paths in the following files. Note that .npz are the completion outputs from PointAttN
