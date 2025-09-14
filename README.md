@@ -43,7 +43,7 @@ cd contact_graspnet_pytorch
    ```
 
 ​
-### Visualize and filter grasps ​
+## Visualize and filter grasps ​
 ```
 python filter_grasps.py
 ```

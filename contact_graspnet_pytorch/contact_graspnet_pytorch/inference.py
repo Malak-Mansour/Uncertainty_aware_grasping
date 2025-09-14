@@ -10,6 +10,7 @@ import config_utils
 from visualization_utils_o3d import visualize_grasps, show_image
 from checkpoints import CheckpointIO 
 from data import load_available_input_data
+import time
 
 def inference(global_config, 
               ckpt_dir,
@@ -49,15 +50,18 @@ def inference(global_config,
     
     os.makedirs('results', exist_ok=True)
 
+
+    # Keep track of strawberry inference times
+    inference_times = []
+
     # Process example test scenes
     for p in glob.glob(input_paths):
         print('Loading ', p)
+        start_time = time.time()  # Start timing
 
         pc_segments = {}
         segmap, rgb, depth, cam_K, pc_full, pc_colors = load_available_input_data(p, K=K)
         
-        # if segmap is None and (local_regions or filter_grasps):
-        #     raise ValueError('Need segmentation map to extract local regions or filter grasps')
 
         if pc_full is None:
             print('Converting depth to point cloud(s)...')
@@ -73,7 +77,12 @@ def inference(global_config,
                                                                                        local_regions=local_regions, 
                                                                                        filter_grasps=filter_grasps, 
                                                                                        forward_passes=forward_passes)  
-    
+        
+        end_time = time.time()  # End timing
+        inference_time = end_time - start_time
+        print(f"Inference time for {p}: {inference_time:.4f} seconds")
+        inference_times.append(inference_time)
+
         # Save results
         np.savez('results/predictions_{}'.format(os.path.basename(p.replace('png','npz').replace('npy','npz'))), 
                   pc_full=pc_full, pred_grasps_cam=pred_grasps_cam, scores=scores, contact_pts=contact_pts, pc_colors=pc_colors)
@@ -85,6 +94,17 @@ def inference(global_config,
         # visualize_grasps(pc_full, pred_grasps_cam, scores, plot_opencv_cam=True, pc_colors=pc_colors)
     if not glob.glob(input_paths):
         print('No files found: ', input_paths)
+
+
+    # After processing all files, calculate statistics for strawberries
+    if len(inference_times) > 0:
+        mean_time = np.mean(inference_times)
+        std_time = np.std(inference_times)
+        print(f"\nStrawberry Statistics:")
+        print(f"Mean inference time: {mean_time:.4f} seconds")
+        print(f"Standard deviation: {std_time:.4f} seconds")
+        print(f"Number of strawberry samples: {len(inference_times)}")
+
         
 if __name__ == "__main__":
 

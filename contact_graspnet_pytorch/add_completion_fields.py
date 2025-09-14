@@ -3,17 +3,17 @@ import os
 
 # === CONFIG ===
 src_paths = [
-    "/home/malak.mansour/Downloads/PointAttN-Modified/PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_no_occ_cd_debug_pcn/all_no_dropout/batch0_sample0_data.npz",
-    "/home/malak.mansour/Downloads/PointAttN-Modified/PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_occ_0.1_cd_debug_pcn/all_no_dropout/batch0_sample0_data.npz",
-    "/home/malak.mansour/Downloads/PointAttN-Modified/PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_occ_0.2_cd_debug_pcn/all_no_dropout/batch0_sample0_data.npz",
-    "/home/malak.mansour/Downloads/PointAttN-Modified/PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_occ_0.3_cd_debug_pcn/all_no_dropout/batch0_sample0_data.npz",
-    "/home/malak.mansour/Downloads/PointAttN-Modified/PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_occ_0.4_cd_debug_pcn/all_no_dropout/batch0_sample0_data.npz",
+    "../../PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_no_occ_cd_debug_pcn/all_no_dropout/batch0_sample0_data.npz",
+    "../../PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_occ_0.1_cd_debug_pcn/all_no_dropout/batch0_sample0_data.npz",
+    "../../PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_occ_0.2_cd_debug_pcn/all_no_dropout/batch0_sample0_data.npz",
+    "../../PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_occ_0.3_cd_debug_pcn/all_no_dropout/batch0_sample0_data.npz",
+    "../../PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_occ_0.4_cd_debug_pcn/all_no_dropout/batch0_sample0_data.npz",
 
-    "/home/malak.mansour/Downloads/PointAttN-Modified/PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_MC_no_occ_cd_debug_pcn/all_dropout/batch0_sample0_data.npz",
-    "/home/malak.mansour/Downloads/PointAttN-Modified/PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_MC_occ_0.1_cd_debug_pcn/all_dropout/batch0_sample0_data.npz",   
-    "/home/malak.mansour/Downloads/PointAttN-Modified/PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_MC_occ_0.2_cd_debug_pcn/all_dropout/batch0_sample0_data.npz",   
-    "/home/malak.mansour/Downloads/PointAttN-Modified/PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_MC_occ_0.3_cd_debug_pcn/all_dropout/batch0_sample0_data.npz",   
-    "/home/malak.mansour/Downloads/PointAttN-Modified/PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_MC_occ_0.4_cd_debug_pcn/all_dropout/batch0_sample0_data.npz",   
+    "../../PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_MC_no_occ_cd_debug_pcn/all_dropout/batch0_sample0_data.npz",
+    "../../PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_MC_occ_0.1_cd_debug_pcn/all_dropout/batch0_sample0_data.npz",
+    "../../PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_MC_occ_0.2_cd_debug_pcn/all_dropout/batch0_sample0_data.npz",
+    "../../PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_MC_occ_0.3_cd_debug_pcn/all_dropout/batch0_sample0_data.npz",
+    "../../PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_MC_occ_0.4_cd_debug_pcn/all_dropout/batch0_sample0_data.npz",
 ]
 
 results_folder = "results"
