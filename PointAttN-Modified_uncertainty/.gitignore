@@ -120,7 +120,7 @@ venv.bak/
 # mypy
 #.mypy_cache/
 /log_old/
-/log/
+# /log/
 /transformation_detection_model/
 /transformation_detection_matrix/
 /data/
