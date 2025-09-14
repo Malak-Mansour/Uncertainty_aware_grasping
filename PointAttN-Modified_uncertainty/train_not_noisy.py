@@ -24,20 +24,6 @@ def train():
     train_loss_meter = AverageValueMeter()
     val_loss_meters = {m: AverageValueMeter() for m in metrics}
 
-    # if args.dataset == 'pcn':
-    #     dataset = PCN_pcd(args.pcnpath, prefix="train")
-    #     dataset_test = PCN_pcd(args.pcnpath, prefix="test")
-    # elif args.dataset == 'c3d':
-    #     dataset = C3D_h5(args.c3dpath, prefix="train")
-    #     dataset_test = C3D_h5(args.c3dpath, prefix="val")
-    # else:
-    #     raise ValueError('dataset is not exist')
-    
-    # dataloader = torch.utils.data.DataLoader(dataset, batch_size=args.batch_size,
-    #                                          shuffle=True, num_workers=int(args.workers))
-    # dataloader_test = torch.utils.data.DataLoader(dataset_test, batch_size=args.batch_size,
-    #                                               shuffle=False, num_workers=int(args.workers))
-    # data_dir = './data'
     # data_dir = './data_mix/data'
     # data_dir = './data_mix/data_occluded/coverage_0.1'
     # data_dir = './data_mix/data_occluded/coverage_0.2'
@@ -53,7 +39,6 @@ def train():
         drop_last=True
     )
 
-    # data_dir = './data_test'
     # data_dir = './data_mix/data_test'
     # data_dir = './data_mix/data_test_occluded/coverage_0.1'
     # data_dir = './data_mix/data_test_occluded/coverage_0.2'
