@@ -72,48 +72,53 @@ def rank_strawberries(npz_folder):
 
 ''''''
 # Rank and choose most and least certain files
-folder = 'all_T60_0.1' #'all_0.1_sim_train_NN'  
+folder = 'PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_MC_no_occ_cd_debug_pcn/all_dropout'
+# folder = 'PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_MC_occ_0.1_cd_debug_pcn/all_dropout'
+# folder = 'PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_MC_occ_0.2_cd_debug_pcn/all_dropout'
+# folder = 'PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_MC_occ_0.3_cd_debug_pcn/all_dropout'
+# folder = 'PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_MC_occ_0.4_cd_debug_pcn/all_dropout'
+
+# folder = 'PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_no_occ_cd_debug_pcn/all_no_dropout'
+# folder = 'PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_occ_0.1_cd_debug_pcn/all_no_dropout'
+# folder = 'PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_occ_0.2_cd_debug_pcn/all_no_dropout'
+# folder = 'PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_occ_0.3_cd_debug_pcn/all_no_dropout'
+# folder = 'PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_occ_0.4_cd_debug_pcn/all_no_dropout'
+
 rankings = rank_strawberries(folder)
 
 print("\n🍓 Ranked Predictions by Certainty (lower = more confident):")
 for i, (f, score) in enumerate(rankings):
     print(f"{i+1:2d}. {os.path.basename(f)} - Mean STD: {score:.6f}")
 
-# Visualize most and least certain
-most_certain_file = rankings[0][0]
-least_certain_file = rankings[-1][0]
 
 
-# Hand pick the most and least certain files
-# most_certain_file = "./all_T60_0.1train_0inference/batch1_sample13_data.npz"
-# least_certain_file = "./all_T60_0.1train_0inference/batch2_sample2_data.npz"
-# most_certain_file = "./9-9-2025_uncertainty/batch2_sample12_data.npz"
-# least_certain_file = "./9-9-2025_uncertainty/batch2_sample12_data.npz"
 
 
-data = np.load(most_certain_file)
-visualize_prediction_with_gt_and_input(
-    pred_xyz_mc=data['mean_out2'],
-    pred_xyz_single=data['xyz'],
-    gt_xyz=data['model_pcd_transformed'],
-    partial_xyz=data['src_pcd'],
-    title="Most Certain Prediction",
-    show_mc=True,
-    show_single=True,
-    show_gt=True,
-    show_input=True
-)
+# # after finding the mean of each strawberry, find the mean and stddev of all the strawberries in each folder
+# # List of folders to process
+# folders = [
+#     'PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_MC_no_occ_cd_debug_pcn/all_dropout',
+#     'PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_MC_occ_0.1_cd_debug_pcn/all_dropout',
+#     'PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_MC_occ_0.2_cd_debug_pcn/all_dropout',
+#     'PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_MC_occ_0.3_cd_debug_pcn/all_dropout',
+#     'PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_MC_occ_0.4_cd_debug_pcn/all_dropout',
+#     'PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_no_occ_cd_debug_pcn/all_no_dropout',
+#     'PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_occ_0.1_cd_debug_pcn/all_no_dropout',
+#     'PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_occ_0.2_cd_debug_pcn/all_no_dropout',
+#     'PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_occ_0.3_cd_debug_pcn/all_no_dropout',
+#     'PointAttN-Modified_uncertainty/log/PointAttN_baseline_cd_matching_f1_occ_0.4_cd_debug_pcn/all_no_dropout'
+# ]
 
+# # Process each folder
+# for folder in folders:
+#     rankings = rank_strawberries(folder)
+#     scores = [score for _, score in rankings]
+    
+#     folder_mean = np.mean(scores)
+#     folder_std = np.std(scores)
+    
+#     print(f"\nFolder: {os.path.basename(os.path.dirname(folder))}")
+#     print(f"Mean across all strawberries: {folder_mean:.6f}")
+#     print(f"StdDev across all strawberries: {folder_std:.6f}")
 
-data = np.load(least_certain_file)
-visualize_prediction_with_gt_and_input(
-    pred_xyz_mc=data['mean_out2'],
-    pred_xyz_single=data['xyz'],
-    gt_xyz=data['model_pcd_transformed'],
-    partial_xyz=data['src_pcd'],
-    title="Least Certain Prediction",
-    show_mc=True,
-    show_single=True,
-    show_gt=True,
-    show_input=True
-)
+# folder = folders[0]  # Use first folder for individual rankings
