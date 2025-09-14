@@ -13,7 +13,7 @@ cd PointAttN-Modified_uncertainty
 1. uncomment the 2 data_dir lines in train_not_noisy.py with the experiment (what level of occlusions) that u want
 2. uncomment the data_dir line in _test_pcn_MC.py_ with the experiment (what level of occlusions) that u want
 3. (un)comment the "If doing occlusions" section in _PCDDataset.py_ depending on your experiment
-4. Write the model name in _cfgs/PointAttN.yaml_
+4. Write the model name in _cfgs/PointAttN.yaml_:
      PointAttN_baseline_cd_matching_f1 (without dropout)
    or
      PointAttN_baseline_cd_matching_f1_MC (with dropout)
